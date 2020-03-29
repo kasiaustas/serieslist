@@ -1,0 +1,71 @@
+<cdk-virtual-scroll-viewport itemSize="110" class="scroll-container">
+
+  <div class="row">
+    <div class="flex-block">
+      <input type="text" placeholder="Name" [(ngModel)]="name" (keyup)="filterContain('name', name)">
+      <i class="material-icons global-search-icon">&#xE8B6;</i>
+      <button class="clear" *ngIf="name" (click)="removeFilter('name')">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <div class="flex-block">
+      <select type="text" [(ngModel)]="genre" (change)="filterContainInArray('genre', genre)">
+        <option value="" selected disabled hidden>Genre</option>
+        <option *ngFor="let elementGenre of genreList" value="{{elementGenre}}">{{elementGenre}}</option>
+      </select>
+      <button class="clear" *ngIf="genre" (click)="removeFilter('genre')">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <div class="flex-block">
+      <select [(ngModel)]="premiere" (change)="filterContain('premiere', premiere)" required>
+        <option value=""  selected disabled hidden>Premiere Year</option>
+        <option *ngFor="let elementYear of yearListSorted" value="{{elementYear[0]}}">{{elementYear[0]}}</option>
+      </select>
+      <button  class="clear" *ngIf="premiere" (click)="removeFilter('premiere')">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Name
+        <button (click)="orderFilter('name')"><mat-icon>unfold_more</mat-icon></button>
+      </th>
+      <th>Season
+        <button (click)="orderFilter('season')"><mat-icon>unfold_more</mat-icon></button>
+      </th>
+      <th>Network
+        <button (click)="orderFilter('network')"><mat-icon>unfold_more</mat-icon></button>
+      </th>
+      <th>Premiere
+        <button (click)="orderFilter('premiere')"><mat-icon>unfold_more</mat-icon></button>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <!--<tr *ngFor="let element of filtredSeries">-->
+    <tr *cdkVirtualFor="let element of filtredSeries">
+      <td>{{element.name}}
+        <!--{{element.genre}}-->
+        <div class="genre">
+          <span *ngFor="let elem of element.genre" class="{{elem}}"><span class="genre-icon">{{elem}}</span>&nbsp;</span>
+        </div>
+      </td>
+      <td>{{element.season}}</td>
+      <td>
+        <span *ngFor="let elem of element.network; let i = index">
+          {{elem}}
+          <span *ngIf="i !== element.network.length-1">{{", "}}</span>
+        </span>
+      </td>
+      <td>{{element.premiere | date:'dd.MM.yyyy'}}</td>
+    </tr>
+    </tbody>
+  </table>
+</cdk-virtual-scroll-viewport>
+
+
+

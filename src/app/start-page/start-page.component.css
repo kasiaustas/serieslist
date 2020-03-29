@@ -1,0 +1,165 @@
+.scroll-container{
+  height: 100vh;
+  scroll-behavior: smooth;
+}
+/* хром, сафари */
+.scroll-container::-webkit-scrollbar { width: 0; }
+/* ie 10+ */
+.scroll-container { -ms-overflow-style: none; }
+/* фф (свойство больше не работает, других способов тоже нет)*/
+.scroll-container { overflow: -moz-scrollbars-none; }
+
+button, input, select{
+  outline: none;
+}
+.row{
+  display: flex;
+  flex-direction: row;
+  margin-left: 1%;
+}
+.flex-block:first-child{
+  width: 40%;
+}
+.flex-block:nth-child(2){
+  width: 30%;
+}
+.flex-block:nth-child(3){
+  width: 30%;
+}
+
+.flex-block>input,
+.flex-block>select{
+  width: 90%;
+  margin-left: 3%;
+  background-color: #f2994a;
+  color: #ffffff;
+  border: none;
+}
+.flex-block>select{
+  padding: 5px 15px 6px 10px;
+}
+
+.flex-block>input{
+  height: 28px;
+  padding: 0 5%;
+  width: 80%;
+}
+.flex-block>input::placeholder {
+  color: #ffffff;
+}
+.flex-block>input::-moz-placeholder{
+  color: #ffffff;
+}
+.flex-block>input::-webkit-input-placeholder{
+  color: #ffffff;
+}
+.flex-block>input::-ms-input-placeholder{
+  color: #ffffff;
+}
+
+.flex-block:first-child{
+  position: relative;
+}
+
+.flex-block:first-child i{
+  position: absolute;
+  right: 10%;
+  top: 10%;
+  color: white;
+  font-size: 20px;
+}
+
+.global-search:focus + i{
+  display: none;
+}
+
+table{
+  width: 96%;
+  margin-left: 2%;
+  background-color: white;
+  margin-top: 15px !important;
+  border-spacing: 0;
+}
+table>thead{
+  background-color: #934dd6;
+  color: white;
+}
+th{
+  font-weight: normal;
+  padding: 4px 15px 2px 15px;
+  text-align: center;
+  width: 20%;
+}
+td{
+  padding: 7px 15px;
+  text-align: center;
+  width: 20%;
+  font-weight: 500;
+  font-size: 15px;
+}
+td:first-child,
+th:first-child{
+  text-align: left;
+  width: 40%;
+}
+
+th>button{
+  float: right;
+  border: none;
+  background: transparent;
+}
+.genre{
+  font-size: 13px;
+  font-weight: 400;
+}
+button>mat-icon{
+  height: 0;
+  width: 0;
+  font-size: 17px;
+  color: white;
+  cursor: pointer;
+}
+button.clear{
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+button.clear>mat-icon{
+  height: 0;
+  width: 0;
+  font-size: 17px;
+  color: black;
+  cursor: pointer;
+  font-weight: bold;
+}
+.genre-icon{
+  color: #ffffff;
+  background-color: #4f4f4f;
+  padding: 2px 13px;
+  border-radius: 10px;
+}
+span.comedy>span{
+ background-color: #bb6bd9;
+}
+span.fantastiс>span{
+  background-color: #934dd6;
+}
+span.crime>span{
+  background-color: #eb5757;
+}
+span.drama>span{
+  background-color: #828282;
+}
+span.militant>span{
+  background-color: #4e342e;
+}
+span.historical>span{
+  background-color: #ad1457;
+}
+span.fantasy>span{
+  background-color: #795548;
+}
+span.melodrama>span{
+  background-color: #bf360c;
+}
+
