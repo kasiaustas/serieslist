@@ -1,6 +1,7 @@
 {
   "name": "serieslist",
   "version": "0.0.0",
+  "license": "ISC",
   "engines": {
     "node": "12.13.0",
     "npm": "6.12.0"
